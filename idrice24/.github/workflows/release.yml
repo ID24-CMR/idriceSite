@@ -1,0 +1,49 @@
+name: Auto Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Important to get all tags
+          github_token: ${{ secrets.GITHUB_TOKEN }} # Only Idrice can set or see this token under setting of repository!!
+          force_orphan: true # allows you to make your publish branch with only the latest commit
+
+      - name: Set up Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+      - name: Get latest tag
+        id: get_tag
+        run: |
+          tag=$(git tag --sort=-v:refname | grep '^v' | head -n 1)
+          echo "Latest tag: $tag"
+          if [ -z "$tag" ]; then
+            tag="v0.0.0.1"
+          fi
+          echo "tag=$tag" >> $GITHUB_ENV
+
+      - name: Bump patch version
+        id: bump_version
+        run: |
+          IFS='.' read -r major minor patch <<< "${tag#v}"
+          patch=$((patch + 1))
+          new_tag="v$major.$minor.$patch"
+          echo "New tag: $new_tag"
+          echo "new_tag=$new_tag" >> $GITHUB_ENV
+
+      - name: Create Git tag
+        run: |
+          git tag $new_tag
+          git push origin $new_tag
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
