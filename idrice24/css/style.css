@@ -1,0 +1,22 @@
+
+
+iframe{
+    width: 100%;
+    margin: 0%;
+}
+
+
+
+.sec{
+    width: 100%;
+    background-attachment: fixed;
+    background-color: blue;
+    text-align: center;
+    border: 1 solid blue;
+}
+
+.foot{
+    text-emphasis: none;
+    text-align: center;
+    color: white;
+}
