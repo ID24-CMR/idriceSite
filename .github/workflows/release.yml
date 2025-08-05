@@ -23,27 +23,29 @@ jobs:
           git config user.email "github-actions@github.com"
 
       - name: Get latest tag
-        id: get_tag
+        id: tagger
         run: |
-          tag=$(git tag --sort=-v:refname | grep '^v' | head -n 1)
-          echo "Latest tag: $tag"
-          if [ -z "$tag" ]; then
-            tag="v0.0.0.0"
-          fi
-          echo "tag=$tag" >> $GITHUB_ENV
+            latest=$(git tag --sort=v:refname | grp '^v' | tail -n 1)
+            if[ -z "$latest"]; then
+              latest
+            fi
+            
+            version=${latest#v}
+            IFS='.' read -ra parts <<< "$version"
+            last_index=$((${#parts[@]} - 1))
+            parts[$last_index]=$((10#${parts[$last_index]} + 1))
 
-      - name: Bump patch version
-        id: bump_version
-        run: |
-          IFS='.' read -r major minor patch <<< "${tag#v}"
-          patch=$((patch + 1))
-          new_tag="v$major.$minor.$patch"
-          echo "New tag: $new_tag"
-          echo "new_tag=$new_tag" >> $GITHUB_ENV
+            new_version="v${parts[0]}"
+            for i in "${parts[@]:1}"; do
+              new_version+=" .${i}"
+              done
+
+              echo "New tag: $new_version"
+              echo "new_tag:$new_version" >> "$GITHUB_TOKEN"  
 
       - name: Create Git tag
         run: |
-          git tag $new_tag
-          git push origin $new_tag
+          git tag ${{ steps.tagger.outputs.new_tag }}
+          git push origin ${{ steps.tagger.outputs.new_tag }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
