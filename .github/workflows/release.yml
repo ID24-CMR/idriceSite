@@ -39,7 +39,6 @@ jobs:
             for i in "${parts[@]:1}"; do
               new_version+=" .${i}"
               done
-              
               echo "new_tag:$new_version" >> "$GITHUB_TOKEN"  
 
       - name: Create Git tag
