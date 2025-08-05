@@ -25,9 +25,9 @@ jobs:
       - name: Get latest tag
         id: tagger
         run: |
-            latest=$(git tag --sort=v:refname | grp '^v' | tail -n 1)
-            if[ -z "$latest"]; then
-              latest
+            latest=$(git tag --sort=v:refname | grep '^v' | tail -n 1)
+            if [ -z "$latest"]; then
+              latest="v0.0.0.0"
             fi
             
             version=${latest#v}
