@@ -1,4 +1,4 @@
-name: Auto Release
+name: Auto Tag
 
 on:
   push:
@@ -51,15 +51,3 @@ jobs:
           git push origin ${{ steps.tagger.outputs.new_tag }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: wait for GitHub to register the tag
-        run: sleep 5
-
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: ${{ env.new_version }}
-          name: "Release ${{ env.new_version }}"
-          body: "Auto release from github actions"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
