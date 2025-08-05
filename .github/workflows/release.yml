@@ -28,7 +28,7 @@ jobs:
           tag=$(git tag --sort=-v:refname | grep '^v' | head -n 1)
           echo "Latest tag: $tag"
           if [ -z "$tag" ]; then
-            tag="v0.0.0.1"
+            tag="v0.0.0.01"
           fi
           echo "tag=$tag" >> $GITHUB_ENV
 
