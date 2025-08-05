@@ -41,7 +41,7 @@ jobs:
               done
 
               echo "New tag: $new_version"
-              echo "new_tag:$new_version" >> "$GITHUB_TOKEN"
+              echo "new_tag:$new_version" >> "$GITHUB_ENV"
 
       - name: Create Git tag
         run: |
