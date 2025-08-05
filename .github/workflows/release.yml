@@ -52,6 +52,9 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: wait for GitHub to register the tag
+        run: sleep 5
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
