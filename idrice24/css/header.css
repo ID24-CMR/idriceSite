@@ -2,24 +2,25 @@
 iframe{
     width: 100%;
     margin: 0%;
+    height: 50%;
 }
 
 nav{
-	background-color: #333;
-	display: flex;
+	background-color: #575757;
 	justify-content: space-between;
 	align-items: center;
 	padding: 0 20px;
+	height: 50%;
 }
 
-.nav-left,
-.nav-right{
+  .nav-left,
+ .nav-right{
 	display: flex;
 	float: right;
 }
 
-.nav-left a,
-.nav-right a {
+
+ a {
 	color: white;
 	padding: 14px 16px;
 	text-decoration: none;
@@ -29,10 +30,14 @@ nav{
 .nav-left a:hover,
 .nav-right a:hover,
 .dropdown:hover .dropbtn{
-	/*background-color: #575757;*/
+	background-color: #575757;
 }
 
 .dropdown {
+	position: relative;
+}
+
+iframe .dropdown{
 	position: relative;
 }
 
