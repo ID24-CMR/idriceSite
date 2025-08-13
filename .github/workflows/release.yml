@@ -1,53 +1,40 @@
-name: Auto Tag
+name: Update Tag Version
 
 on:
-  push:
-    branches:
-      - main
-    tags-ignore:
-      - '*'
+  workflow_dispatch:   # allows manual trigger
 
 jobs:
-  release:
+  update-tag:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Important to get all tags
-          github_token: ${{ secrets.GITHUB_TOKEN }} # Only Idrice can set or see this token under setting of repository!!
-          force_orphan: true # allows you to make your publish branch with only the latest commit
+          fetch-depth: 0  # fetch all history to access tags
 
-      - name: Set up Git
+      - name: Configure Git
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-      - name: Get latest tag
-        id: tagger
+      - name: Determine new tag version
+        id: vars
         run: |
-            latest=$(git tag --sort=v:refname | grep '^v' | tail -n 1)
-            if [ -z "$latest" ]; then
-              latest="v0.0.0.0"
-            fi
-            
-            version=${latest#v}
-            IFS='.' read -ra parts <<< "$version"
-            last_index=$((${#parts[@]} - 1))
-            parts[$last_index]=$((10#${parts[$last_index]} + 1))
+          # Get latest tag
+          LATEST_TAG=$(git describe --tags --abbrev=0)
+          echo "Latest tag: $LATEST_TAG"
 
-            new_version="v${parts[0]}"
-            for i in "${parts[@]:1}"; do
-              new_version+=" .${i}"
-              done
+          # Increment patch version (vX.Y.Z)
+          IFS='.' read -r MAJOR MINOR PATCH <<< "${LATEST_TAG#v}"
+          PATCH=$((PATCH + 1))
+          NEW_TAG="v$MAJOR.$MINOR.$PATCH"
+          echo "New tag: $NEW_TAG"
 
-              echo "New tag: $new_version"
-              echo "new_tag=$new_version" >> "$GITHUB_ENV"
+          # Save as output
+          echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
 
-      - name: Create Git tag
+      - name: Create new tag
         run: |
-          git tag ${{ steps.tagger.outputs.new_tag }}
-          git push origin ${{ steps.tagger.outputs.new_tag }}
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git tag -a ${{ steps.vars.outputs.new_tag }} -m "Auto tag from CI"
+          git push origin ${{ steps.vars.outputs.new_tag }}
