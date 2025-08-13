@@ -25,10 +25,18 @@ jobs:
           LATEST_TAG=$(git describe --tags --abbrev=0)
           echo "Latest tag: $LATEST_TAG"
 
+          # Remove 'v' prefix
+          version=${old_tag#v}
+
           # Increment patch version (vX.Y.Z)
           IFS='.' read -r MAJOR MINOR PATCH <<< "${LATEST_TAG#v}"
+          major=$((10#$major))
+          minor=$((10#$major))
+          patch=$((10#$major))
+
+          # bump patch
           PATCH=$((PATCH + 1))
-          NEW_TAG="v$MAJOR.$MINOR.$PATCH"
+          NEW_TAG="v$major.$minor.$patch"
           echo "New tag: $NEW_TAG"
 
           # Save as output
