@@ -17,11 +17,6 @@ document.addEventListener("DOMContentLoaded", function(){
         });
 })
 
-/*function googleTranslateElementInit(){
-    new google.translate.TranslateElement(
-        { pageLanguage: 'en'},
-        'google_translate_element');
-}*/
 
 /* Script to trigger translation on dropdown change*/
 
