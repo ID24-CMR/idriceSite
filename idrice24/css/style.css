@@ -19,8 +19,9 @@ iframe{
     border: 1 solid blue;
 }
 
-.foot{
+foot{
     text-emphasis: none;
     text-align: center;
-    color: white;
+    color: blue;
+    width: 100%;
 }

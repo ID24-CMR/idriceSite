@@ -15,7 +15,7 @@ nav{
 .nav-left,
 .nav-right{
 	display: flex;
-	align-items: center;
+	float: right;
 }
 
 .nav-left a,
@@ -29,7 +29,7 @@ nav{
 .nav-left a:hover,
 .nav-right a:hover,
 .dropdown:hover .dropbtn{
-	background-color: #575757;
+	/*background-color: #575757;*/
 }
 
 .dropdown {
