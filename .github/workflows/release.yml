@@ -29,13 +29,13 @@ jobs:
           version=${old_tag#v}
 
           # Increment patch version (vX.Y.Z)
-          IFS='.' read -r MAJOR MINOR PATCH <<< "${LATEST_TAG#v}"
-          major=$((10#$major))
-          minor=$((10#$major))
-          patch=$((10#$major))
+          IFS='.' read -r major minor patch <<< "${LATEST_TAG#v}"
+          major=$(echo "$major" | tr -cd '0-9')
+          minor=$(echo "$minor" | tr -cd '0-9')
+          patch=$(echo "$patch" | tr -cd '0-9')
 
           # bump patch
-          PATCH=$((PATCH + 1))
+          patch=$((patch + 1))
           NEW_TAG="v$major.$minor.$patch"
           echo "New tag: $NEW_TAG"
 
