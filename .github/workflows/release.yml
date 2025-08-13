@@ -46,3 +46,17 @@ jobs:
         run: |
           git tag -a ${{ steps.vars.outputs.new_tag }} -m "Auto tag from CI"
           git push origin ${{ steps.vars.outputs.new_tag }}
+
+        # create new Github release
+      - name: Create Github Release
+        uses: actions/create-release@1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.bump.outputs.new_tag }}
+          release_name: "Release ${{ steps.bump.outputs.new_tag }}"
+          body: |
+            ## Chages in this release
+            - Auto-generated release for version ${{ steps.bump.outputs.new_tag }}
+            draft: false
+            prerelease: false
