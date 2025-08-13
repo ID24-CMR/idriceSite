@@ -2,11 +2,15 @@ body{
     margin: 1px;
     font-family: Arial, sans-serif;
 }
+header{
+    z-index: 10;
+}
 
 iframe{
     width: 100%;
     margin-top: 15px;
     text-align: center;
+    border: none;
 }
 
 
@@ -76,9 +80,40 @@ foot{
 }
 
 .cont-one aside .search input{
-    color: aliceblue;
+    color: black;
     width: 450px;
     height: 28px;
     box-sizing: border-box;
     border-radius: 5%;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+.cont-two {
+    padding: 20px;
+}
+
+.cont-two a {
+    text-decoration: none;
+    color: royalblue;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 25px;
+}
+.columns{
+    display: flex;
+    gap: 20px; /* space between columns */
+}
+
+.columns .column{
+    flex: 1; /* each column takes equal space */
+    padding: 20px;
+    text-align: center;
+    background-color: #eee;
+}
+
+.header-cont {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
 }
