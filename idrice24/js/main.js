@@ -37,3 +37,8 @@ document.getElementById('language-select').addEventListener('change', function()
         select.dispatchEvent(new Event('change'));
     }
 });
+
+
+document.querySelectorAll('a').forEach(link => {
+    link.setAttribute('target', '_top');
+});
