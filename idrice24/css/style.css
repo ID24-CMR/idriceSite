@@ -5,7 +5,7 @@ body{
 
 iframe{
     width: 100%;
-    margin: 0%;
+    margin-top: 15px;
     text-align: center;
 }
 
@@ -25,4 +25,60 @@ foot{
     text-align: center;
     width: 100%;
     color: white;
+}
+
+.cont-one{
+    height: 700px;
+    margin-top: -80px;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-image: url('../assets/bg1.jpg');
+    background-repeat: no-repeat; /* prevent tiling */
+    background-size: cover;
+    background-position: center;
+}
+
+.cont-two{
+    height: 700px;
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-image: url('../assets/bg3.jpg');
+    background-repeat: no-repeat; /* prevent tiling */
+    background-size: cover;
+    background-position: center;
+}
+
+
+.cont-one aside{
+    position: absolute;
+    right: 0;
+    bottom: 40%;
+    width: 550px;
+    background-color: transparent;
+    font-size: 2.5em;
+    transform-origin: center right;
+    white-space: nowrap;
+}
+
+.cont-one aside .head-one{
+    color: royalblue;
+    width: 100px;
+}
+.cont-one aside .head-two{
+    color: aliceblue;
+    width: 100px;
+}
+
+.cont-one aside .search{
+    color: aliceblue;
+    width: 100px;
+}
+
+.cont-one aside .search input{
+    color: aliceblue;
+    width: 450px;
+    height: 28px;
+    box-sizing: border-box;
+    border-radius: 5%;
 }
