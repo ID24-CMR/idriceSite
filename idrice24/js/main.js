@@ -1,4 +1,6 @@
+import * as emailjs from "https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js";
 
+/*
 document.addEventListener("DOMContentLoaded", function(){
     
         fetch('idrice24/footer.html').then(res => res.text()).then(data => {
@@ -16,9 +18,9 @@ document.addEventListener("DOMContentLoaded", function(){
             console.error("Error loading footer:", error);
         });
 })
+*/
 
-
-/* Script to trigger translation on dropdown change*/
+/* Script to trigger translation on dropdown change
 
 document.getElementById('language-select').addEventListener('change', function() {
     var lang = this.value;
@@ -37,6 +39,39 @@ document.getElementById('language-select').addEventListener('change', function()
         select.dispatchEvent(new Event('change'));
     }
 });
+*/
+
+/* contact form */
+(function(){
+    emailjs.init("QmhyNXLIzrXyn-fKY");
+})();
+
+function sendEmail(){
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    if(!name || !email || !message){
+        alert("please fill in all fields.");
+        return;
+    }
+
+    emailjs.sed("service_8io57oi", "template_anq9fqd", {
+        name: name,
+        email: email,
+        message: message
+    }).then(() => {
+        alert("Message sent successfully!");
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
+    }, (error) => {
+        alert("Failed to send message: "+JSON.stringify(error));
+    });
+}
+
+
+
 
 
 document.querySelectorAll('a').forEach(link => {

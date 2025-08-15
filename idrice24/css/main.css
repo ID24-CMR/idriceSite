@@ -1,0 +1,86 @@
+/* this is the main css */
+
+
+/* new css */
+
+/* product css */
+
+/* contact css */
+sec {
+	font-family: sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+}
+ cont {
+	margin-bottom: 20px;
+	font-size: 2rem;
+	color: royalblue;
+}
+
+
+ sec textarea {
+	width: 180%;
+	height: 50vh;
+	float: center;
+	padding: 10px;
+	border-radius: 8px;
+	border: green 2px solid;
+	margin-left: -35%;
+
+
+}
+
+sec input {
+	width: 90%;
+	height: 10px;
+}
+
+sec textarea:hover, input:hove {
+	border-color: blue;
+	border-radius: 3px;
+}
+
+sec button {
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	cursor: pointer;
+	transition: background 0.3s;
+	width: 183%;
+	height: 45px;
+	margin-left: -35%;
+	float: center;
+	padding: 10px;
+	margin-top: 2px;
+	margin-bottom: 4px;
+	border-radius: 8px;
+	text-align: center;
+	font-size: 20px;
+}
+
+sec input {
+	width: 180%;
+	height: 20px;
+	border-color: green;
+	border-radius: 8px;
+	float: center;
+	padding: 10px;
+	margin-left: -35%;
+	padding: 10px;
+	margin-top: 2px;
+
+
+}
+
+sec button:hove {
+	background-color: #45a049;
+}
+
+
+/* mns237 css */
+
+/* ? css */
+
