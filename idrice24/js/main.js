@@ -41,7 +41,7 @@ document.getElementById('language-select').addEventListener('change', function()
 });
 */
 
-/* contact form */
+/* contact form 
 (function(){
     emailjs.init("QmhyNXLIzrXyn-fKY");
 })();
@@ -72,7 +72,7 @@ function sendEmail(){
 
 
 
-
+*/
 
 document.querySelectorAll('a').forEach(link => {
     link.setAttribute('target', '_top');
