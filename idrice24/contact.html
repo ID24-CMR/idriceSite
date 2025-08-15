@@ -31,7 +31,37 @@
         <footer>
             <iframe src="footer.html" frameborder="0"></iframe>
         </footer>
-<script type="module" src="js/main.js"></script>
+<script type="module" src="js/main.js">
+	(function(){
+    emailjs.init("QmhyNXLIzrXyn-fKY");
+})();
+
+function sendEmail(){
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    if(!name || !email || !message){
+        alert("please fill in all fields.");
+        return;
+    }
+
+    emailjs.sed("service_8io57oi", "template_anq9fqd", {
+        name: name,
+        email: email,
+        message: message
+    }).then(() => {
+        alert("Message sent successfully!");
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
+    }, (error) => {
+        alert("Failed to send message: "+JSON.stringify(error));
+    });
+}
+
+
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </body>
