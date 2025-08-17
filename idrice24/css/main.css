@@ -85,6 +85,20 @@ sec button:hove {
 	background-color: #45a049;
 }
 
+.map{
+	padding: 10rem 2;
+	text-align: center;
+}
+
+.map-container {
+	margin-top: 1rem;
+	margin-bottom: 2rem;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* End contact */
 
 /* mns237 css */
 
