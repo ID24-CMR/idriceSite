@@ -1,5 +1,10 @@
 /* this is the main css */
-
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Arial, sans-serif;
+}
 
 /* new css */
 
@@ -29,6 +34,7 @@ sec {
 	border-radius: 8px;
 	border: green 2px solid;
 	margin-left: -35%;
+	display: flex;
 
 
 }
@@ -81,6 +87,78 @@ sec button:hove {
 
 
 /* mns237 css */
+
+
+/* about us css */
+.container{
+	width: 90%;
+	max-height: 1200px;
+	margin: auto;
+}
+
+.hero {
+	background: #f4f4f4;
+	padding: 2rem 0;
+	text-align: center;
+}
+
+.about{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	padding: 2rem 0;
+	align-items: center;
+}
+
+.about-text{
+	flex:  400px;
+}
+
+.about-image {
+	flex:  400px;
+}
+
+.about-image img{
+	width: 100%;
+	border-radius: 10px;
+}
+
+.team {
+	background: #f4f4f4;
+	padding: 2rem 0;
+	text-align: center;
+}
+
+.team-members {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	justify-content: center;
+	margin-top: 1rem;
+}
+
+.member {
+	flex: 200px;
+	background: #fff;
+	padding: 1rem;
+	border-radius: 10px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 1.0);
+}
+
+.member img {
+	width: 100%;
+	border-radius: 50%;
+}
+
+@media(max-width: 768px){
+	.about {
+		flex-direction: column;
+	}
+
+	.team-members{
+		flex-direction: column;
+	}
+}
 
 /* ? css */
 
