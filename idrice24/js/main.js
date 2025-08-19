@@ -37,28 +37,49 @@ faders.forEach(fader =>{
 
     // function to load items from JSON
     function loadItems() {
-        fetch('users.json').then(res => res.json()).then(data => {
+        fetch('data/users.json').then(res => res.json()).then(data => {
             container.innerHTML = '';
             data.forEach(item => {
                 const card = document.createElement('div');
-            })
+                card.classList.add('card');
+                card.innerHTML =`
+                    <h2>${item.title}</h2>
+                    <img src="${item.image}" alt="{item.title}">
+                    <p>${item.description}</p>
+                    <p class="price">${item.price}</p>
+                `;
+                container.appendChild(card);
+            });
+            cards = Array.from(conatainer.querySelectorAll('.card'));
         })
+        .catch(err => console.error('Error loading JSON:', err));
     }
-document.addEventListener('DOMContentLoaded', () => {
 
-    btn.addEventListener('click', () => {
-        container.classList.toggle("list-view");
+// initial load
+    loadItems();
+// Automatically reload every 10 seconds
+    setInterval(loadItems, 10000);
 
-    // Change icon based on view
-    if(container.classList.contains("list-view")) {
-        icon.classList.remove("fa-list");
-        icon.classList.add("fa-th-large");
+btn.addEventListener('click', () => {
+    if(cards.lenngth === 0) return;
+
+    if(!container.classList.contains('list-view')) {
+        container.classList.add('list-view');
+        cards.forEach((card, i) =>{
+            card.classList.remove('grid-animate');
+            card.classList.remove('show');
+            setTimeout(() => card.classList.add('show'), i * 100);
+        });
+        icon.classList.replace('fa-list', 'fa-th-large');
     }else{
-        icon.classList.remove("fa-th-large");
-        icon.classList.add("fa-list");
+        cards.forEach((card, i) =>{
+            card.classList.remove('show');
+            card.classList.add('grid-animate');
+            setTimeout(() => card.classList.add('grid-animate'), i * 100);
+        });
+        container.classList.remove('list-view');
+        icon.classList.replace('fa-th-large', 'fa-list');
     }
-});
-    
 });
 
 
