@@ -24,3 +24,43 @@ const apppearOnScroll = new IntersectionObserver(function(entries, observer)
 faders.forEach(fader =>{
     apppearOnScroll.observe(fader);
 });
+
+/* product script */
+
+
+
+    const container = document.getElementById("itemContainer");
+    const btn = document.getElementById("toggleBtn");
+    const icon = document.getElementById("toggleIcon");
+
+    let cards = [];
+
+    // function to load items from JSON
+    function loadItems() {
+        fetch('users.json').then(res => res.json()).then(data => {
+            container.innerHTML = '';
+            data.forEach(item => {
+                const card = document.createElement('div');
+            })
+        })
+    }
+document.addEventListener('DOMContentLoaded', () => {
+
+    btn.addEventListener('click', () => {
+        container.classList.toggle("list-view");
+
+    // Change icon based on view
+    if(container.classList.contains("list-view")) {
+        icon.classList.remove("fa-list");
+        icon.classList.add("fa-th-large");
+    }else{
+        icon.classList.remove("fa-th-large");
+        icon.classList.add("fa-list");
+    }
+});
+    
+});
+
+
+
+/* end script for product */
