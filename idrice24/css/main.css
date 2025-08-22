@@ -133,6 +133,8 @@ body {
 .grid-animate .show {
 	opacity: 1;; transform: scale(1.0);
 }
+
+
 /* contact css */
 sec {
 	font-family: sans-serif;
@@ -239,13 +241,14 @@ sec button:hove {
 	text-align: center;
 }
 
-.hero h2{
+.container .hero h2{
 	font-size: 2.5rem;
 	margin-bottom: 1rem;
 }
 
-.hero p{
+.container .hero p{
 	font-size: 1.2rem;
+	display: flex;
 }
 
 .about{
@@ -297,8 +300,9 @@ sec button:hove {
 }
 
 .member img {
-	width: 100%;
+	width: 90%;
 	border-radius: 50%;
+	max-height: 350px;
 }
 
 .fade-in {
