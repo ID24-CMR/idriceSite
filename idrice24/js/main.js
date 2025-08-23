@@ -58,9 +58,9 @@ faders.forEach(fader =>{
 // initial load
     loadItems();
 // Automatically reload every 10 seconds
-    setInterval(loadItems, 10000);
-
-btn.addEventListener('click', () => {
+/*    setInterval(loadItems, 10000);*/
+/*
+toggleBtn.addEventListener('click', () => {
     if(cards.lenngth === 0) return;
 
     if(!container.classList.contains('list-view')) {
@@ -81,7 +81,62 @@ btn.addEventListener('click', () => {
         icon.classList.replace('fa-th-large', 'fa-list');
     }
 });
-
+*/
 
 
 /* end script for product */
+
+/* start script for login here */
+document.getElementById(loginForm).addEventListener("submit", function(e){
+    e.preventDefault(); // prevent form submission 
+
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const remember = document.getElementById("rememberMe").checked;
+    const error = document.getElementById("error");
+
+    if(username === "" || password === "" ) {
+        error.textContent = "Please fill in all fields.";
+        error.style.color = "red";
+        return;
+    }
+
+    if(username === "admin" && password === "4321") {
+        error.style.color = "lightgreen";
+        error.textContent = "Login successful";
+        if (remember) {
+        localStore.setItem("savedUser", username);
+    }else{
+        localStore.removeItem("savedUser");
+    }
+
+    setTimeout(() => {
+        window.location.href = "dashbaord.html"; // redirect
+    }, 1000);
+    }else{
+        error.style.color = "red";
+        error.textContent = "Invalid username or password";
+    }
+});
+
+// Show/Hide password
+const togglePassword = document.getElementById("togglePassword");
+const passwordField = document.getElementById("password");
+
+togglePassword.addEventListener("click", () => {
+    const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
+    passwordField.setAttribute("type", type);
+
+    togglePassword.textContent = type === "password" ? "." : " ";
+});
+
+// Auto-fill saved username if remember Me was checked.
+window.onload = () => {
+    const savedUser = localStorage.getItem("savedUser");
+    if (savedUser) {
+        document.getElementById("username").value = savedUser;
+        document.getElementById("rememberMe").checked = true;
+    }
+}
+
+/*** end script for login here **/

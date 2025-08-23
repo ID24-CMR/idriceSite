@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<title>login</title>
+</head>
+<body class="bd">
+<div class="login-container">
+	<h2>Login</h2>
+	<form id="loginForm">
+		<div class="input-group">
+			<label for="username">Username</label>
+			<input type="text" name="" id="username" placeholder="Enter  username" required>
+		</div>
+
+		<div class="input-group">
+			<label for="password">Password</label>
+			<input type="password" name="" id="password" placeholder="Enter password" required>
+			<span class="toggle-password" id="togglePassword">.</span>
+		</div>
+
+		<div class="options">
+			<label for="remember" class="remember">
+				<input type="checkbox" name="" id="rememberMe">Remember Me
+			</label>
+			<a href="#" class="forgot">Forgot Password?</a>
+		</div>
+
+		<button type="submit">Login</button>
+		<p class="error-message" id="error"></p>
+	</form>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
