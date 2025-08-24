@@ -155,6 +155,19 @@ function loadContent(page) {
     document.getElementById('page-title').textContent = page.charAt(0).toUpperCase() + page.slice(1);
 }
 
+const salesData = [12000, 10000, 18000, 14000];
+const labels = ["Jan", "Feb", "Mar", "Apr", "May"];
+const chartContainer = document.getElementById("sales-chart");
+
+const max = Math.max(salesData);
+
+salesData.forEach((value, i) => {
+    const bar = document.createElement("div");
+    bar.className = "bar";
+    bar.style.height = (value / 100 ) + "%"; //scale heiht
+    bar.setAttribute("data-label", labels[i]);
+    chartContainer.appendChild(bar);
+});
 
 
 /** dashboard script end **/
