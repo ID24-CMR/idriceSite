@@ -87,7 +87,7 @@ toggleBtn.addEventListener('click', () => {
 /* end script for product */
 
 /* start script for login here */
-document.getElementById(loginForm).addEventListener("submit", function(e){
+document.getElementById("loginForm").addEventListener("submit", function(e){
     e.preventDefault(); // prevent form submission 
 
     const username = document.getElementById("username").value.trim();
@@ -105,9 +105,9 @@ document.getElementById(loginForm).addEventListener("submit", function(e){
         error.style.color = "lightgreen";
         error.textContent = "Login successful";
         if (remember) {
-        localStore.setItem("savedUser", username);
+        localStorage.setItem("savedUser", username);
     }else{
-        localStore.removeItem("savedUser");
+        localStorage.removeItem("savedUser");
     }
 
     setTimeout(() => {
