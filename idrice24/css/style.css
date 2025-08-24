@@ -123,6 +123,7 @@ foot{
     overflow: hidden;
 }
 .bd::before{
+    content: " ";
     position: absolute;
     width: 300px;
     height: 300px;
@@ -246,3 +247,92 @@ button:hover {
     color: #ff6b6b;
     font-size: 0.9rem;
 }
+
+/** ends of login css **/
+
+
+/** start of dashboard **/
+.body {
+    display: flex;
+    height: 100vh;
+    background: #f5f6fa;
+}
+
+/* sideBar */
+.sidebar {
+    width: 220px;
+    background: #2c3e50;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h2 {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: block;
+}
+.sidebar a:hover {
+    background: #34495e;
+}
+
+/* Main content */
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.topbar {
+    background: #fff;
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* dashboard */
+.content.active {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+.content {
+    display: none;
+}
+
+.card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.card p {
+    font-size: 14px;
+    color: #555;
+}
+
+@media (max-width: 768px){
+    .sidebar{
+        display: none;
+    }
+}
+
+/** end of dashboard **/

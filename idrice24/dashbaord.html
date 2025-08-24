@@ -1,1 +1,66 @@
-welcome to dashboard!!!!!!!!!!!!!!!!!!!!!!!!1
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<title>dashbord</title>
+</head>
+<body class="body">
+<!-- SideBar -->
+<div class="sidebar">
+	<h2>Admin</h2>
+	<a href="#" onclick="loadContent('dashboards')">DashBoard</a>
+	<a href="#" onclick="loadContent('users')">Users</a>
+	<a href="#" onclick="loadContent('settings')">Settings</a>
+	<a href="#" onclick="loadContent('logout')">Logout</a>
+</div>
+
+<!-- main -->
+<div class="main">
+	<div class="topbar">
+		<h2 id="page-title">Dashboard</h2>
+		<span><i></i>Admin</span>
+	</div>
+
+<!-- content -->
+<div class="content active" id="dashboards" active>
+	<div class="card">
+		<h3>Total Users</h3>
+		<p>1, 250</p>
+	</div>
+	<div class="card">
+		<h3>Sales</h3>
+		<p>1, 250</p>
+	</div>
+	<div class="card">
+		<h3>New Orders</h3>
+		<p>1, 250</p>
+	</div>
+	<div class="card">
+		<h3>Notifications</h3>
+		<p>8 new alerts</p>
+	</div>
+	
+</div>
+
+<div class="content" id="users">
+	<div class="card">
+		<h3>User List</h3>
+		<p>Manage Users here.</p>
+	</div>
+</div>
+
+<div class="content" id="settings">
+	<div class="card">
+		<h3>Settings</h3>
+		<p>DashBoard settings here..</p>
+	</div>
+</div>
+
+
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -140,3 +140,22 @@ window.onload = () => {
 }
 
 /*** end script for login here **/
+
+
+/** dashboard script start **/
+//simple navigation system
+
+function loadContent(page) {
+    document.querySelectorAll('.content').forEach(section => {
+        section.classList.remove('active');
+    });
+
+    document.getElementById(page).classList.add('active');
+
+    document.getElementById('page-title').textContent = page.charAt(0).toUpperCase() + page.slice(1);
+}
+
+
+
+/** dashboard script end **/
+
