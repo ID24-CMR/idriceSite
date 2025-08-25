@@ -172,3 +172,29 @@ salesData.forEach((value, i) => {
 
 /** dashboard script end **/
 
+/** main page script start here */
+document.addEventListener('DOMContentLoader', () => {
+
+let testimonials = document.querySelectorAll('.testimonial');
+let currentIndex = 0;
+
+
+const showTestimonial = index => {
+    testimonials.forEach((t, i) => t.classList.remove('active'));
+    testimonials[index].classList.add('active');
+};
+
+document.querySelector('.next').addEventListener('click', () => {
+    currentIndex = ( currentIndex - 1 + testimonials.length) % testimonials.length;
+    showTestimonial(currentIndex);
+})
+
+setInterval(() => {
+    currentIndex = ( currentIndex + 1) % testimonials.length;
+    showTestimonial(currentIndex);
+}, 5000);
+
+});
+
+/** main page script end here */
+
