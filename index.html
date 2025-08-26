@@ -125,6 +125,34 @@
     </div>
 </section>
 
+
+<section class="projects" id="projects">
+    <h2>Mes Projts</h2>
+    <div class="projects-container">
+        <div class="project-card">
+            <img src="https://picsum.photos/300/200?random=14" alt="Projet 1">
+            <h3>Projet 1</h3>
+            <p>Une breve description de du projet</p>
+            <a href="#">Voir plus</a>
+        </div>
+
+        <div class="project-card">
+            <img src="https://picsum.photos/300/200?random=13" alt="Projet 2">
+            <h3>Projet 2</h3>
+            <p>Une breve description de du projet</p>
+            <a href="#">Voir plus</a>
+        </div>
+
+        <div class="project-card">
+            <img src="https://picsum.photos/300/200?random=12" alt="Projet 3">
+            <h3>Projet 3</h3>
+            <p>Une breve description de du projet</p>
+            <a href="#">Voir plus</a>
+        </div>
+    </div>
+</section>
+
+
 <section class="testimonials">
     <h2>What Our Clients Say</h2>
     <div class="testimonial-slider">
@@ -149,6 +177,16 @@
     </div>
 </section>
 
+<section class="contact">
+    <h2>Cpntactez-nous</h2>
+    <p>N'hesitez pas a m'ecrire pour toute collaboration ou question !</p>
+    <form  class="contact-form" id="contactForm">
+        <input type="text" name="name" placeholder="Votre nom" required>
+        <input type="email" name="email" placeholder="Votre email" required>
+        <textarea name="message" row="5" placeholder="Votre Message.." required></textarea>
+        <button type="submit">Envoyer</button>
+    </form>
+</section>
 
     <footer>
             <iframe src="idrice24/footer.html" frameborder="0"></iframe>
@@ -157,5 +195,29 @@
 
     <script src="idrice24/js/main.js"></script>
    <!-- <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>-->
+
+   <script>
+       const form = document.getElementById('contactForm');
+
+       form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+
+        try {
+            await fetch('https://formspree.io/f/mgvleadp', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            form.reset();
+        } catch (error) {
+            alert("Erreur lors de l'envoi, reessaye plu tard.");
+        }
+       });
+   </script>
 </body>
 </html>

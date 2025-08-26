@@ -15,11 +15,11 @@
             	<cont>Nous contacter per Email</cont>
     		
             	
-            	<form>
-            		<textarea id="message" placeholder="message"></textarea>
+            	<form id="contactForm">
+            		<textarea id="message" name="message" placeholder="message"></textarea>
             	<i></i>	<input type="text" name="name" id="name" placeholder="name">
             	<i></i>	<input type="email" name="email" id="email" placeholder="email">
-            	<button onclick="sendEmail()">Send Message</button>
+            	<button type="submit">Send Message</button>
             	</form>
             </sec>
 
@@ -38,42 +38,30 @@
         </footer>
 
 
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
 <script>
-	(function(){
-    emailjs.init("email_OLmGyipuzjTeKo3PaLXcBf7R");
-})();
+       const form = document.getElementById('contactForm');
 
-function sendEmail(){
-	event.preventDefault();
+       form.addEventListener('submit', async function(e) {
+        e.preventDefault();
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
+        const formData = new FormData(form);
 
-    if(!name || !email || !message){
-        alert("please fill in all fields.");
-        return;
-    }
+        try {
+            await fetch('https://formspree.io/f/mgvleadp', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
 
-    emailjs.send("service_8io57oi", "template_anq9fqd", {
-        name: name,
-        email: email,
-        message: message
-    }).then(() => {
-        alert("Message sent successfully!");
-        document.getElementById("name").value = "";
-        document.getElementById("email").value = "";
-        document.getElementById("message").value = "";
-    }, (error) => {
-        alert("Failed to send message: "+JSON.stringify(error));
-    });
-}
+            form.reset();
+        } catch (error) {
+            alert("Erreur lors de l'envoi, reessaye plu tard.");
+        }
+       });
+   </script>
 
-
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </body>
 </html>
