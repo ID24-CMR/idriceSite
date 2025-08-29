@@ -196,5 +196,43 @@ setInterval(() => {
 
 });
 
+document.addEventListener("DOMContentLoader", () => {
+
+            const chatBtn = document.getElementById("chatBtn");
+            const chatWindow = document.getElementById("chatWindow");
+            const closeChat = document.getElementById("closeChat");
+            const sendBtn = document.getElementById("sendBtn");
+            const chatInput = document.getElementById("chatInput");
+            const chatBody = document.getElementById("chatBody");
+
+            chatBtn.onclick = () => {
+               alert("OK");
+            };
+
+
+            //  function test(){
+            //      if(chatWindow.style.display === "none") {
+            //         chatWindow.style.display = "flex";
+            //     }else {
+            //         chatWindow.style.display = "none";
+            //     }
+                
+            // };
+
+            closeChat.onclick = () => chatWindow.style.display = "nome";
+            sendBtn.onclick = () => {
+                let msg = chatInput.value.trim();
+                if(msg) {
+                    chatBody.innerHTML += `<p><b>You</b> ${msg}</p>`;
+                    chatInput.value = "";
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                    setTimeout(() => {
+                        chatBody.innerHTML += `<p><b>Assistant:<b> I will get back to you son "${msg}".</p>`;
+                        chatBody.scrollTop = chatBody.scrollHeight;
+                    }, 1000);
+                }
+            };
+});
+
 /** main page script end here */
 

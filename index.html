@@ -177,8 +177,25 @@
     </div>
 </section>
 
+
+<!--- Help Assisstant Button -->
+<button id="chatBtn" name="chatBtn" onclick="submit()">Help</button>
+<div id="chatWindow" class="chat-hidden">
+    <div class="chat-header">
+        <span>Help Assistant</span>
+        <button id="closeChat">X</button>
+    </div>
+    <div id="chatBody" class="chat-body">
+        <p><b>Assistant:</b> Hi! How can i help you today?</p>
+    </div>
+    <div class="chat-footer">
+        <input type="text" id="chatInput" placeholder="Type your message.....">
+        <button id="sendBtn">Send</button>
+    </div>
+</div>
+
 <section class="contact">
-    <h2>Cpntactez-nous</h2>
+    <h2>Contactez-nous</h2>
     <p>N'hesitez pas a m'ecrire pour toute collaboration ou question !</p>
     <form  class="contact-form" id="contactForm">
         <input type="text" name="name" placeholder="Votre nom" required>
@@ -214,10 +231,12 @@
             });
 
             form.reset();
+             alert("Message send!!!.");
         } catch (error) {
             alert("Erreur lors de l'envoi, reessaye plu tard.");
         }
        });
    </script>
+
 </body>
 </html>
