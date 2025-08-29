@@ -59,7 +59,7 @@ faders.forEach(fader =>{
     loadItems();
 // Automatically reload every 10 seconds
 /*    setInterval(loadItems, 10000);*/
-/*
+
 toggleBtn.addEventListener('click', () => {
     if(cards.lenngth === 0) return;
 
@@ -81,7 +81,7 @@ toggleBtn.addEventListener('click', () => {
         icon.classList.replace('fa-th-large', 'fa-list');
     }
 });
-*/
+
 
 
 /* end script for product */
