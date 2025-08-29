@@ -269,7 +269,7 @@ foot{
     cursor: pointer;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-70%);
     font-size: 2rem;
     color: #00bfff;
     background: rgba(255, 255, 255, 0.7);
@@ -670,10 +670,22 @@ button:hover {
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
+.close {
+    width: 25px;
+    font-size: 15px;
+    cursor: pointer;
+
+}
 
 .chat-hidden {
     display: none;
+    flex-direction: column;
+    width: 500px;
+    height: auto;
+    float: right;
+    margin: 10px;
 }
+
 .chat-header {
     background: #007bff;
     color: #fff;
@@ -688,7 +700,7 @@ button:hover {
 .chat-body {
     flex-direction: 1;
     padding: 10px;
-    overflow-y: auto;
+    max-width: 200px;
     font-size: 14px;
 }
 
@@ -699,8 +711,9 @@ button:hover {
 
 .chat-footer input {
     flex-direction: 1;
-    border: 8px;
-    font-size: 14px;
+    border: none;
+    font-size: 19px;
+
 }
 
 .chat-footer button {

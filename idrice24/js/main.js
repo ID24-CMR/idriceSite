@@ -30,7 +30,7 @@ faders.forEach(fader =>{
 
 
     const container = document.getElementById("itemContainer");
-    const btn = document.getElementById("toggleBtn");
+    const toggleBtn = document.getElementById("toggleBtn");
     const icon = document.getElementById("toggleIcon");
 
     let cards = [];
@@ -82,7 +82,31 @@ toggleBtn.addEventListener('click', () => {
     }
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const openModal = document.getElementById("openModal");
+    const modal = document.getElementById("productModal");
+    const closeModal = document.getElementById("closeModal");
 
+    
+
+        console.log("Js is loaded");
+    openModal.onclick = () =>  {
+        console.log("Open Modal clicked");
+        modal.style.display = "flex";
+    };
+
+
+    closeModal.addEventListener("click", () => {
+        modal.style.display = "flex";
+    });
+
+
+    window.addEventListener("click", (e) => {
+        if(e.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+});
 
 /* end script for product */
 
@@ -173,66 +197,13 @@ salesData.forEach((value, i) => {
 /** dashboard script end **/
 
 /** main page script start here */
-document.addEventListener('DOMContentLoader', () => {
-
-let testimonials = document.querySelectorAll('.testimonial');
-let currentIndex = 0;
 
 
-const showTestimonial = index => {
-    testimonials.forEach((t, i) => t.classList.remove('active'));
-    testimonials[index].classList.add('active');
-};
-
-document.querySelector('.next').addEventListener('click', () => {
-    currentIndex = ( currentIndex - 1 + testimonials.length) % testimonials.length;
-    showTestimonial(currentIndex);
-})
-
-setInterval(() => {
-    currentIndex = ( currentIndex + 1) % testimonials.length;
-    showTestimonial(currentIndex);
-}, 5000);
-
-});
-
-document.addEventListener("DOMContentLoader", () => {
-
-            const chatBtn = document.getElementById("chatBtn");
-            const chatWindow = document.getElementById("chatWindow");
-            const closeChat = document.getElementById("closeChat");
-            const sendBtn = document.getElementById("sendBtn");
-            const chatInput = document.getElementById("chatInput");
-            const chatBody = document.getElementById("chatBody");
-
-            chatBtn.onclick = () => {
+const chatBtn = document.getElementById("btnClick");
+ chatBtn.onclick = () => {
                alert("OK");
             };
 
-
-            //  function test(){
-            //      if(chatWindow.style.display === "none") {
-            //         chatWindow.style.display = "flex";
-            //     }else {
-            //         chatWindow.style.display = "none";
-            //     }
-                
-            // };
-
-            closeChat.onclick = () => chatWindow.style.display = "nome";
-            sendBtn.onclick = () => {
-                let msg = chatInput.value.trim();
-                if(msg) {
-                    chatBody.innerHTML += `<p><b>You</b> ${msg}</p>`;
-                    chatInput.value = "";
-                    chatBody.scrollTop = chatBody.scrollHeight;
-                    setTimeout(() => {
-                        chatBody.innerHTML += `<p><b>Assistant:<b> I will get back to you son "${msg}".</p>`;
-                        chatBody.scrollTop = chatBody.scrollHeight;
-                    }, 1000);
-                }
-            };
-});
 
 /** main page script end here */
 
