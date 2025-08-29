@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
+    <meta name="description" content="MNS - Empowering people through modern technology solutions. Web development, mobile apps, cloud solutions and more.">
+    <meta name="keywords" content="web development, mobile apps, cloud solutions, technology, IT services">
+    <meta name="author" content="MNS">
+    <title>MNS - Modern Technology Solutions</title>
     <link rel="stylesheet" href="idrice24/css/style.css">
     <link rel="stylesheet" type="text/css" href="idrice24/css/header.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -127,27 +130,27 @@
 
 
 <section class="projects" id="projects">
-    <h2>Mes Projts</h2>
+    <h2>Our Projects</h2>
     <div class="projects-container">
         <div class="project-card">
-            <img src="https://picsum.photos/300/200?random=14" alt="Projet 1">
-            <h3>Projet 1</h3>
-            <p>Une breve description de du projet</p>
-            <a href="#">Voir plus</a>
+            <img src="https://picsum.photos/300/200?random=14" alt="E-commerce Platform">
+            <h3>E-commerce Platform</h3>
+            <p>A modern online store with advanced features and mobile optimization</p>
+            <a href="#">View Details</a>
         </div>
 
         <div class="project-card">
-            <img src="https://picsum.photos/300/200?random=13" alt="Projet 2">
-            <h3>Projet 2</h3>
-            <p>Une breve description de du projet</p>
-            <a href="#">Voir plus</a>
+            <img src="https://picsum.photos/300/200?random=13" alt="Corporate Website">
+            <h3>Corporate Website</h3>
+            <p>Professional business website with content management system</p>
+            <a href="#">View Details</a>
         </div>
 
         <div class="project-card">
-            <img src="https://picsum.photos/300/200?random=12" alt="Projet 3">
-            <h3>Projet 3</h3>
-            <p>Une breve description de du projet</p>
-            <a href="#">Voir plus</a>
+            <img src="https://picsum.photos/300/200?random=12" alt="Mobile App">
+            <h3>Mobile App</h3>
+            <p>Cross-platform mobile application for service management</p>
+            <a href="#">View Details</a>
         </div>
     </div>
 </section>
@@ -195,13 +198,13 @@
 </div>
 
 <section class="contact">
-    <h2>Contactez-nous</h2>
-    <p>N'hesitez pas a m'ecrire pour toute collaboration ou question !</p>
+    <h2>Contact Us</h2>
+    <p>Don't hesitate to reach out for any collaboration or questions!</p>
     <form  class="contact-form" id="contactForm">
-        <input type="text" name="name" placeholder="Votre nom" required>
-        <input type="email" name="email" placeholder="Votre email" required>
-        <textarea name="message" row="5" placeholder="Votre Message.." required></textarea>
-        <button type="submit">Envoyer</button>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message..." required></textarea>
+        <button type="submit">Send Message</button>
     </form>
 </section>
 
@@ -268,7 +271,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     chatInput.value = "";
                     chatBody.scrollTop = chatBody.scrollHeight;
                     setTimeout(() => {
-                        chatBody.innerHTML += `<p><b>Assistant:<b> I will get back to you son "${msg}".</p>`;
+                        const responses = [
+                            `Thank you for your message about "${msg}". I'll get back to you soon with a detailed response.`,
+                            `I've received your inquiry about "${msg}". Our team will review this and contact you within 24 hours.`,
+                            `Thanks for reaching out regarding "${msg}". I'll forward this to our specialists and get back to you shortly.`
+                        ];
+                        const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                        chatBody.innerHTML += `<p><b>Assistant:</b> ${randomResponse}</p>`;
                         chatBody.scrollTop = chatBody.scrollHeight;
                     }, 1000);
                 }
@@ -287,9 +296,14 @@ const showTestimonial = index => {
 };
 
 document.querySelector('.next').addEventListener('click', () => {
+    currentIndex = ( currentIndex + 1) % testimonials.length;
+    showTestimonial(currentIndex);
+});
+
+document.querySelector('.prev').addEventListener('click', () => {
     currentIndex = ( currentIndex - 1 + testimonials.length) % testimonials.length;
     showTestimonial(currentIndex);
-})
+});
 
 setInterval(() => {
     currentIndex = ( currentIndex + 1) % testimonials.length;

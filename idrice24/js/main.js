@@ -37,22 +37,36 @@ faders.forEach(fader =>{
 
     // function to load items from JSON
     function loadItems() {
-        fetch('data/users.json').then(res => res.json()).then(data => {
-            container.innerHTML = '';
-            data.forEach(item => {
-                const card = document.createElement('div');
-                card.classList.add('card');
-                card.innerHTML =`
-                    <h2>${item.title}</h2>
-                    <img src="${item.image}" alt="{item.title}">
-                    <p>${item.description}</p>
-                    <p class="price">${item.price}</p>
-                `;
-                container.appendChild(card);
+        // Show loading state
+        container.innerHTML = '<div class="loading">Loading products...</div>';
+        
+        fetch('data/users.json')
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Failed to load products');
+                }
+                return res.json();
+            })
+            .then(data => {
+                container.innerHTML = '';
+                data.forEach(item => {
+                    const card = document.createElement('div');
+                    card.classList.add('card');
+                    card.innerHTML =`
+                        <h2>${item.title}</h2>
+                        <img src="${item.image}" alt="${item.title}">
+                        <p>${item.description}</p>
+                        <p class="price">${item.price}</p>
+                        <button class="btn">Learn More</button>
+                    `;
+                    container.appendChild(card);
+                });
+                cards = Array.from(container.querySelectorAll('.card'));
+            })
+            .catch(err => {
+                console.error('Error loading JSON:', err);
+                container.innerHTML = '<div class="error">Failed to load products. Please try again later.</div>';
             });
-            cards = Array.from(conatainer.querySelectorAll('.card'));
-        })
-        .catch(err => console.error('Error loading JSON:', err));
     }
 
 // initial load
@@ -61,7 +75,7 @@ faders.forEach(fader =>{
 /*    setInterval(loadItems, 10000);*/
 
 toggleBtn.addEventListener('click', () => {
-    if(cards.lenngth === 0) return;
+    if(cards.length === 0) return;
 
     if(!container.classList.contains('list-view')) {
         container.classList.add('list-view');
@@ -97,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     closeModal.addEventListener("click", () => {
-        modal.style.display = "flex";
+        modal.style.display = "none";
     });
 
 
@@ -135,7 +149,7 @@ document.getElementById("loginForm").addEventListener("submit", function(e){
     }
 
     setTimeout(() => {
-        window.location.href = "dashbaord.html"; // redirect
+        window.location.href = "dashboard.html"; // redirect
     }, 1000);
     }else{
         error.style.color = "red";
