@@ -30,7 +30,7 @@ faders.forEach(fader =>{
 
 
     const container = document.getElementById("itemContainer");
-    const btn = document.getElementById("toggleBtn");
+    const toggleBtn = document.getElementById("toggleBtn");
     const icon = document.getElementById("toggleIcon");
 
     let cards = [];
@@ -59,7 +59,7 @@ faders.forEach(fader =>{
     loadItems();
 // Automatically reload every 10 seconds
 /*    setInterval(loadItems, 10000);*/
-/*
+
 toggleBtn.addEventListener('click', () => {
     if(cards.lenngth === 0) return;
 
@@ -81,8 +81,32 @@ toggleBtn.addEventListener('click', () => {
         icon.classList.replace('fa-th-large', 'fa-list');
     }
 });
-*/
 
+document.addEventListener("DOMContentLoaded", () => {
+    const openModal = document.getElementById("openModal");
+    const modal = document.getElementById("productModal");
+    const closeModal = document.getElementById("closeModal");
+
+    
+
+        console.log("Js is loaded");
+    openModal.onclick = () =>  {
+        console.log("Open Modal clicked");
+        modal.style.display = "flex";
+    };
+
+
+    closeModal.addEventListener("click", () => {
+        modal.style.display = "flex";
+    });
+
+
+    window.addEventListener("click", (e) => {
+        if(e.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+});
 
 /* end script for product */
 
@@ -173,28 +197,13 @@ salesData.forEach((value, i) => {
 /** dashboard script end **/
 
 /** main page script start here */
-document.addEventListener('DOMContentLoader', () => {
-
-let testimonials = document.querySelectorAll('.testimonial');
-let currentIndex = 0;
 
 
-const showTestimonial = index => {
-    testimonials.forEach((t, i) => t.classList.remove('active'));
-    testimonials[index].classList.add('active');
-};
+const chatBtn = document.getElementById("btnClick");
+ chatBtn.onclick = () => {
+               alert("OK");
+            };
 
-document.querySelector('.next').addEventListener('click', () => {
-    currentIndex = ( currentIndex - 1 + testimonials.length) % testimonials.length;
-    showTestimonial(currentIndex);
-})
-
-setInterval(() => {
-    currentIndex = ( currentIndex + 1) % testimonials.length;
-    showTestimonial(currentIndex);
-}, 5000);
-
-});
 
 /** main page script end here */
 

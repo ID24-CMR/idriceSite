@@ -177,8 +177,25 @@
     </div>
 </section>
 
+
+<!--- Help Assisstant Button -->
+<button id="chatBtn" name="chatBtn" >Help</button>
+<div id="chatWindow" class="chat-hidden">
+    <div class="chat-header">
+        <span>Help Assistant</span>
+        <button id="closeChat" class="close">X</button>
+    </div>
+    <div id="chatBody" class="chat-body">
+        <p><b>Assistant:</b> Hi! How can i help you today?</p>
+    </div><br>
+    <div class="chat-footer">
+        <input type="text" id="chatInput" placeholder="Type your message.....">
+        <button id="sendBtn">Send</button>
+    </div>
+</div>
+
 <section class="contact">
-    <h2>Cpntactez-nous</h2>
+    <h2>Contactez-nous</h2>
     <p>N'hesitez pas a m'ecrire pour toute collaboration ou question !</p>
     <form  class="contact-form" id="contactForm">
         <input type="text" name="name" placeholder="Votre nom" required>
@@ -193,10 +210,9 @@
     </footer>
 
 
-    <script src="idrice24/js/main.js"></script>
-   <!-- <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>-->
+    <script src="idrice24/js/main.js" type="text/javascript"></script>
 
-   <script>
+   <script type="text/javascript">
        const form = document.getElementById('contactForm');
 
        form.addEventListener('submit', async function(e) {
@@ -214,10 +230,74 @@
             });
 
             form.reset();
+             alert("Message send!!!.");
         } catch (error) {
             alert("Erreur lors de l'envoi, reessaye plu tard.");
         }
        });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+            const chatBtn = document.getElementById("chatBtn");
+            const chatWindow = document.getElementById("chatWindow");
+            const closeChat = document.getElementById("closeChat");
+            const sendBtn = document.getElementById("sendBtn");
+            const chatInput = document.getElementById("chatInput");
+            const chatBody = document.getElementById("chatBody");
+
+            chatBtn.onclick = () => {
+               chatWindow.style.display = "flex";
+            };
+
+
+            //  function test(){
+            //      if(chatWindow.style.display === "none") {
+            //         chatWindow.style.display = "flex";
+            //     }else {
+            //         chatWindow.style.display = "none";
+            //     }
+                
+            // };
+
+            closeChat.onclick = () => {chatWindow.style.display = "none"};
+            sendBtn.onclick = () => {
+                let msg = chatInput.value.trim();
+                if(msg) {
+                    chatBody.innerHTML += `<p><b>You</b> ${msg}</p>`;
+                    chatInput.value = "";
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                    setTimeout(() => {
+                        chatBody.innerHTML += `<p><b>Assistant:<b> I will get back to you son "${msg}".</p>`;
+                        chatBody.scrollTop = chatBody.scrollHeight;
+                    }, 1000);
+                }
+            };
+});
+
+document.addEventListener('DOMContentLoader', () => {
+
+let testimonials = document.querySelectorAll('.testimonial');
+let currentIndex = 0;
+
+
+const showTestimonial = index => {
+    testimonials.forEach((t, i) => t.classList.remove('active'));
+    testimonials[index].classList.add('active');
+};
+
+document.querySelector('.next').addEventListener('click', () => {
+    currentIndex = ( currentIndex - 1 + testimonials.length) % testimonials.length;
+    showTestimonial(currentIndex);
+})
+
+setInterval(() => {
+    currentIndex = ( currentIndex + 1) % testimonials.length;
+    showTestimonial(currentIndex);
+}, 5000);
+
+});
    </script>
+
 </body>
 </html>

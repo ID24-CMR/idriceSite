@@ -269,7 +269,7 @@ foot{
     cursor: pointer;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-70%);
     font-size: 2rem;
     color: #00bfff;
     background: rgba(255, 255, 255, 0.7);
@@ -652,3 +652,74 @@ button:hover {
 }
 
 /** end of dashboard **/
+
+
+/** chat here css ****/
+
+#chatBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+.close {
+    width: 25px;
+    font-size: 15px;
+    cursor: pointer;
+
+}
+
+.chat-hidden {
+    display: none;
+    flex-direction: column;
+    width: 500px;
+    height: auto;
+    float: right;
+    margin: 10px;
+}
+
+.chat-header {
+    background: #007bff;
+    color: #fff;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-body {
+    flex-direction: 1;
+    padding: 10px;
+    max-width: 200px;
+    font-size: 14px;
+}
+
+.chat-footer {
+    display: flex;
+    border-top: 1px solid #ddd;
+}
+
+.chat-footer input {
+    flex-direction: 1;
+    border: none;
+    font-size: 19px;
+
+}
+
+.chat-footer button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+}
