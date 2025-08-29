@@ -83,7 +83,7 @@ toggleBtn.addEventListener('click', () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    const openModal = document.getElementById("openModal");
+    const openModal = document.getElementById("itemContainer");
     const modal = document.getElementById("productModal");
     const closeModal = document.getElementById("closeModal");
 
