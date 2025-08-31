@@ -362,3 +362,35 @@ sec button:hove {
 
 /* ? css */
 
+/* Loading and Error States */
+.loading {
+    text-align: center;
+    padding: 40px;
+    font-size: 18px;
+    color: #666;
+}
+
+.error {
+    text-align: center;
+    padding: 40px;
+    color: #d32f2f;
+    background: #ffebee;
+    border-radius: 8px;
+    margin: 20px;
+}
+
+.card .btn {
+    margin-top: 15px;
+    width: 100%;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.card .btn:hover {
+    background: #0056b3;
+}
