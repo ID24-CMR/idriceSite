@@ -42,7 +42,7 @@ header{
     color: white;
     border-radius: 5px;
     text-decoration: none;
-    transition: background0.3s;
+    transition: background 0.3s;
 }
 
 .btn:hover {
@@ -76,7 +76,7 @@ header{
 }
 
 .card:hover {
-    transform: 15px;
+    transform: translateY(-5px);
 }
 
 .card h3 {
@@ -722,4 +722,87 @@ button:hover {
     border: none;
     padding: 8px 12px;
     cursor: pointer;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1.5rem;
+    }
+    
+    .services {
+        padding: 40px 5%;
+    }
+    
+    .service-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .projects-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .testimonial-slider {
+        padding: 0 20px;
+    }
+    
+    .contact-form {
+        padding: 0 20px;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    .chat-hidden {
+        width: 90%;
+        margin: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 70vh;
+        padding: 10px;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+    
+    .btn {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+    
+    .services h2,
+    .products h2,
+    .team h2,
+    .projects h2,
+    .testimonials h2,
+    .contact h2 {
+        font-size: 1.5rem;
+    }
 }

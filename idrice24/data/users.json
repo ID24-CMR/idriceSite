@@ -1,93 +1,58 @@
 [
 	{
 		"id": 1,
-		"title": "Item 1",
-		"description": "Short detail 1.",
-		"price": "$20",
-		"image": "https://www.kasandbox.org/programming-images/avatars/spunky-sam.png"
+		"title": "Web Development Package",
+		"description": "Complete website development with responsive design, SEO optimization, and content management system.",
+		"price": "$1,299",
+		"image": "https://picsum.photos/300/200?random=1"
 	},
 	{
 		"id": 2,
-		"title": "Item 2",
-		"description": "Short detail 1.",
-		"price": "$20",
-		"image": "https://www.kasandbox.org/programming-images/avatars/spunky-sam.png"
+		"title": "Mobile App Development",
+		"description": "Cross-platform mobile application development for iOS and Android with modern UI/UX design.",
+		"price": "$2,499",
+		"image": "https://picsum.photos/300/200?random=2"
 	},
 	{
 		"id": 3,
-		"title": "Item 3",
-		"description": "Short detail 1.",
-		"price": "$20",
-		"image": "https://www.kasandbox.org/programming-images/avatars/spunky-sam.png"
+		"title": "Cloud Infrastructure Setup",
+		"description": "Complete cloud infrastructure setup with AWS, Azure, or Google Cloud including monitoring and security.",
+		"price": "$899",
+		"image": "https://picsum.photos/300/200?random=3"
 	},
 	{
 		"id": 4,
-		"title": "Item 4",
-		"description": "Short detail 1.",
-		"price": "$20",
-		"image": "https://www.kasandbox.org/programming-images/avatars/spunky-sam.png"
+		"title": "E-commerce Solution",
+		"description": "Full-featured online store with payment processing, inventory management, and customer analytics.",
+		"price": "$1,799",
+		"image": "https://picsum.photos/300/200?random=4"
 	},
 	{
 		"id": 5,
-		"title": "Item 5",
-		"description": "Short detail 1.",
-		"price": "$20",
-		"image": "https://www.kasandbox.org/programming-images/avatars/spunky-sam.png"
+		"title": "Digital Marketing Package",
+		"description": "Comprehensive digital marketing strategy including SEO, social media, and content marketing.",
+		"price": "$599",
+		"image": "https://picsum.photos/300/200?random=5"
 	},
 	{
 		"id": 6,
-		"title": "Item 6",
-		"description": "Short detail 1.",
-		"price": "$20",
-		"image": "https://www.kasandbox.org/programming-images/avatars/spunky-sam.png"
+		"title": "UI/UX Design Service",
+		"description": "Professional user interface and user experience design for web and mobile applications.",
+		"price": "$799",
+		"image": "https://picsum.photos/300/200?random=6"
 	},
 	{
 		"id": 7,
-		"title": "Item 7",
-		"description": "Short detail 1.",
-		"price": "$20",
-		"image": "https://www.kasandbox.org/programming-images/avatars/spunky-sam.png"
+		"title": "IT Consulting",
+		"description": "Strategic IT consulting to help optimize your technology infrastructure and digital transformation.",
+		"price": "$150",
+		"image": "https://picsum.photos/300/200?random=7"
 	},
 	{
 		"id": 8,
-		"title": "Item 8",
-		"description": "Short detail 1.",
-		"price": "$20",
-		"image": "https://www.kasandbox.org/programming-images/avatars/spunky-sam.png"
-	},
-	{
-		"id": 9,
-		"title": "Item 9",
-		"description": "Short detail 1.",
-		"price": "$20",
-		"image": "https://www.kasandbox.org/programming-images/avatars/spunky-sam.png"
-	},
-	{
-		"id": 10,
-		"title": "Item 10",
-		"description": "Short detail 1.",
-		"price": "$20",
-		"image": "https://www.kasandbox.org/programming-images/avatars/spunky-sam.png"
-	},
-	{
-		"id": 11,
-		"title": "Item 11",
-		"description": "Short detail 1.",
-		"price": "$20",
-		"image": "https://www.kasandbox.org/programming-images/avatars/spunky-sam.png"
-	},
-	{
-		"id": 12,
-		"title": "Item 12",
-		"description": "Short detail 1.",
-		"price": "$20",
-		"image": "https://www.kasandbox.org/programming-images/avatars/spunky-sam.png"
-	},
-	{
-		"id": 13,
-		"title": "Item 13",
-		"description": "Short detail 1.",
-		"price": "$20",
-		"image": "https://www.kasandbox.org/programming-images/avatars/spunky-sam.png"
+		"title": "Maintenance & Support",
+		"description": "Ongoing website and application maintenance with 24/7 technical support and regular updates.",
+		"price": "$99",
+		"image": "https://picsum.photos/300/200?random=8"
 	}
 ]
