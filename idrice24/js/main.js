@@ -111,11 +111,11 @@ document.addEventListener("DOMContentLoaded", () => {
 /* end script for product */
 
 /* start script for login here */
-document.getElementById("loginForm").addEventListener("submit", function(e){
+document.getElementById("login-form").addEventListener("submit", function(e){
     e.preventDefault(); // prevent form submission 
 
-    const username = document.getElementById("username").value.trim();
-    const password = document.getElementById("password").value.trim();
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
     const remember = document.getElementById("rememberMe").checked;
     const error = document.getElementById("error");
 
@@ -142,6 +142,7 @@ document.getElementById("loginForm").addEventListener("submit", function(e){
         error.textContent = "Invalid username or password";
     }
 });
+
 
 // Show/Hide password
 const togglePassword = document.getElementById("togglePassword");
@@ -195,6 +196,7 @@ salesData.forEach((value, i) => {
 
 
 /** dashboard script end **/
+
 
 /** main page script start here */
 
