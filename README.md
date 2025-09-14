@@ -176,6 +176,48 @@ For support and questions:
 **Built with ❤️ by the MNS Team**
 
 
+⚙️ Backend Design in Spring Boot
+
+Here’s a recommended architecture: what components, endpoints, models, etc.
+
+
+---
+
+1. Tech stack & setup
+
+Spring Boot (latest stable)
+
+Spring MVC (for REST controllers)
+
+Spring Data JPA (for persistence)
+
+Database: possibly PostgreSQL (or MySQL) for production; H2 for dev/testing
+
+Use Lombok for boilerplate (getters/setters)
+
+Use Spring Security if you want admin login / protected endpoints
+
+Maybe integrate authentication if product buying, etc. (Optional)
+
+Use file storage (local or cloud) for images
+
+
+
+---
+
+2. Data Models (Entities)
+
+Here are the main entities I think you’ll need:
+
+Entity	Fields
+
+Service	id, name, description, imageUrl
+Product	id, name, description, price, imageUrl, maybe “available”/stock
+TeamMember	id, name, title/role, bio (optional), imageUrl
+Project	id, name/title, description, imageUrl, details (long description)
+Testimonial	id, clientName, quote, maybe clientPhoto
+ContactMessage	id, name, email, subject (optional), messageBody, timestamp
+User (optional; for admin or for buyers)	id, username/email, password (encrypted), roles
 
 
 
