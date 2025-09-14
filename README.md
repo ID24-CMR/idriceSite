@@ -220,8 +220,125 @@ ContactMessage	id, name, email, subject (optional), messageBody, timestamp
 User (optional; for admin or for buyers)	id, username/email, password (encrypted), roles
 
 
+3. API Endpoints
+
+Here’s a set of REST endpoints you might define. These are mostly GET for data display plus POST for forms or purchases.
+
+Purpose	HTTP Method	Endpoint	Request Body / Params	Response
+
+List all services	GET	/api/services	—	List of Service DTOs
+Get a specific service	GET	/api/services/{id}	path id	Service DTO
+List all products	GET	/api/products	pagination/filter (optional)	List of Product DTOs
+Get product detail	GET	/api/products/{id}	path id	Product DTO
+Place an order (“Buy Now”)	POST	/api/orders	user info / cart items	Order confirmation
+List team members	GET	/api/team-members	—	List TeamMember DTOs
+List projects	GET	/api/projects	—	List of Project DTOs
+Get project detail	GET	/api/projects/{id}	path id	Project detail DTO
+List testimonials	GET	/api/testimonials	—	List of Testimonial DTOs
+Submit contact message	POST	/api/contact-messages	name, email, subject, message	success / error
+
+
+If there’s admin capabilities (managing the products, services, etc.), you’d also have:
+
+POST / PUT / DELETE endpoints for services, products, etc. (e.g. /api/products for creating, /api/products/{id} for updating or deleting)
+
+Authentication endpoints (/api/auth/login, /api/auth/register if needed)
 
 
 
+---
+
+4. Project Structure (Packages etc.)
+
+Something like:
+
+src/
+ └─ main/
+     ├─ java/
+     │    └─ com.yourcompany.yoursite/
+     │         ├─ controller/
+     │         ├─ service/
+     │         ├─ repository/
+     │         ├─ model/entity/
+     │         ├─ dto/  (for request/response DTOs)
+     │         ├─ config/
+     │         └─ exception/  (for custom exception handling)
+     └─ resources/
+         ├─ application.properties (or application.yml)
+         ├─ static/ (if you ever serve images or static content)
+         └─ templates/ (if any server-side rendering, probably not needed)
+
+
+---
+
+5. Security & Validation
+
+Validate request bodies (e.g. contact message: non-empty name, valid email)
+
+If allowing admin operations, protect them with Spring Security + JWT or session auth
+
+CORS configuration if frontend is served from different domain
+
+
+
+---
+
+6. Sample DTOs
+
+// Example for Product
+public class ProductDTO {
+    private Long id;
+    private String name;
+    private String description;
+    private BigDecimal price;
+    private String imageUrl;
+}
+
+// Contact form request
+public class ContactMessageRequest {
+    @NotBlank String name;
+    @Email String email;
+    String subject;
+    @NotBlank String message;
+}
+
+
+---
+
+7. Example Controller Snippet
+
+@RestController
+@RequestMapping("/api/products")
+public class ProductController {
+
+    private final ProductService productService;
+
+    @GetMapping
+    public List<ProductDTO> getAllProducts() {
+        return productService.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public ProductDTO getProductById(@PathVariable Long id) {
+        return productService.findById(id)
+             .orElseThrow(() -> new ResourceNotFoundException("Product", "id", id));
+    }
+
+    @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
+    public ProductDTO createProduct(@RequestBody @Valid ProductDTO dto) {
+        return productService.create(dto);
+    }
+
+    @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<?> deleteProduct(@PathVariable Long id) {
+        productService.delete(id);
+        return ResponseEntity.ok().build();
+    }
+}
+
+
+--- 
 
 
